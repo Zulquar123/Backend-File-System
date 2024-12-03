@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Backend App</title>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900   ">
+        <div class="p-10">
+            <form action="/create" method="post" class="flex flex-col gap-3 m-auto w-[80%]">
+                <input type="text" name="title" placeholder="Title ..." class="p-3 rounded outline-none">
+                <textarea name="details" placeholder="Task Details ..." class="p-3 rounded outline-none "></textarea>
+                <button type="submit" class=" p-2 rounded font-bold text-xl bg-blue-600 text-white">Submit</button>
+            </form>
+        </div>
+        <div class=" mx-2  flex gap-10 flex-wrap m-auto justify-center">
+           
+                   
+             <% if(files.length>0){%>
+
+                <% files.forEach(function(val){%>
+                <div class="task bg-gray-600 p-4 rounded text-white font-bold ">
+                    <h1 class="text-xl"><%= val %></h1>
+                    <a class="text-green-500 font-semibold inline-block mt-7" href="/file/<%= val %>">Read More</a>
+                </div>
+                <% }) %>
+
+             <% } else {%>
+                    <h1 class="text-2xl font-bold text-green-500">No Task Yet ...</h1>    
+            <% }%>     
+           
+          
+        </div>
+    </div>
+</body>
+</html>
