@@ -5,7 +5,7 @@ const fs = require("fs");
 
 
 const port = process.env.PORT || 3000;
-// Correct case for setting the view engine
+
 app.set("view engine", "ejs");
 
 app.use(express.json());
@@ -18,6 +18,8 @@ app.get("/", (req, res) => {
          res.render("index",{files:files});
     })
 });
+
+
 app.get("/file/:filename", (req, res) => {
     fs.readFile(`./files/${req.params.filename}`,"utf-8", function(err, filedata) {
         console.log(filedata);
